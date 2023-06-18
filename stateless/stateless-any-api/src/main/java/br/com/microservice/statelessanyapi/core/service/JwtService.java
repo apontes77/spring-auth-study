@@ -31,6 +31,10 @@ public class JwtService {
         return new AuthUserResponse(userId, (String) tokenClaims.get("username"));
     }
 
+    public void validateAccessToken(String token) {
+        getClaims(token);
+    }
+
     private Claims getClaims(String token) {
 
         var accessToken = extractToken(token);
